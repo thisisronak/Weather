@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Weather Check{% endblock %}
+
+{% block body_block %}
+    <center>
+        </br>
+        {% if ip %}
+            <p>Your IP address is <b>{{ ip }}</b> </p>
+        {% else %}
+            <p>No ip address detected</p>
+        {% endif %}
+
+        {% if location %}
+            <p>Location detected is <b>{{ location }}</b> </p>
+        {% else %}
+            <p>Couldn't locate your city</p>
+        {% endif %}
+
+        {% if weather %}
+            <p>Weather is <b>{{ weather }}</b> </p>
+            <font color=brown><center> <h1>
+            {% if weather == 'Clear'  %}
+                Come on, Go Out
+            {% elif weather == 'Clouds' %}
+                Take that jacket with you
+            {% elif weather == 'Rainy' %}
+                Better pack that umbrella
+            {% endif %}
+            </h1> </center> </font>
+        {% else %}
+            <p>Can't find your weather details</p>
+        {% endif %}
+    </center>
+{% endblock %}
+
+
